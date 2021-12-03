@@ -1,3 +1,21 @@
+const retornoServidor = [
+    {
+        author:"barked",
+        authorImage:"barked",
+        contentFile:"dog",
+        engager:"adorable_animals",
+        engagerImage:"adorable_animals",
+        numberReactions:"99.159"
+    },
+    {
+        author:"barked",
+        authorImage:"barked",
+        contentFile:"dog",
+        engager:"adorable_animals",
+        engagerImage:"adorable_animals",
+        numberReactions:"99.160"
+    },
+]
 export default function Corpo(){
     return(
         <div class="corpo">
@@ -79,16 +97,7 @@ export default function Corpo(){
                     <ion-icon name="chevron-forward-circle"></ion-icon>
                     </div>
                 </div>
-                <div class="posts">
-                    <Post 
-                        author="barked"
-                        authorImage="barked"
-                        contentFile="dog"
-                        engager="adorable_animals"
-                        engagerImage="adorable_animals"
-                        numberReactions="99.159"
-                    />        
-                </div>
+                <Posts />
             </div>
 
             <div class="sidebar">
@@ -173,6 +182,13 @@ export default function Corpo(){
             </div>
         </div>
     );
+}
+function Posts(){
+    return(
+        <div class="posts">
+            {retornoServidor.map(Post)}
+        </div>    
+    )
 }
 function Post(props){
     const authorImage = `assets/img/${props.authorImage}.svg`
