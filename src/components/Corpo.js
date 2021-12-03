@@ -2,7 +2,8 @@ const retornoServidorPosts = [
     {
         author:"barked",
         authorImage:"barked",
-        contentFile:"dog",
+        typeContent: "img",
+        contentName:"dog",
         engager:"Animais Adoráveis",
         engagerImage:"adorable_animals",
         numberReactions:"99.159"
@@ -10,7 +11,8 @@ const retornoServidorPosts = [
     {
         author:"barked",
         authorImage:"barked",
-        contentFile:"dog",
+        typeContent: "video",
+        contentName:"video",
         engager:"Responde aí",
         engagerImage:"respondeai",
         numberReactions:"99.160"
@@ -73,10 +75,7 @@ const retornoServidorStories = [
 export default function Corpo(){
     return(
         <div class="corpo">
-            <div class="esquerda">
-                <Stories />
-                <Posts />
-            </div>
+            <Main />
 
             <div class="sidebar">
                 <div class="usuario">
@@ -161,6 +160,14 @@ export default function Corpo(){
         </div>
     );
 }
+function Main(){
+    return(
+        <div class="esquerda">
+            <Stories />
+            <Posts />
+        </div>
+    )
+}
 function Posts(){
     return(
         <div class="posts">
@@ -169,9 +176,8 @@ function Posts(){
     )
 }
 function Post(props){
-    const authorImage = `assets/img/${props.authorImage}.svg`
-    const contentFile = `assets/img/${props.contentFile}.svg`
-    const engagerImage = `assets/img/${props.engagerImage}.svg` 
+    const authorImage = `assets/img/${props.authorImage}.svg`;
+    const engagerImage = `assets/img/${props.engagerImage}.svg`;
     return(
         <div class="post">
             <div class="topo">
@@ -185,7 +191,7 @@ function Post(props){
             </div>
 
             <div class="conteudo">
-                <img src={contentFile} />
+                <Content type={props.typeContent} contentName={props.contentName}/>
             </div>
 
             <div class="fundo">
@@ -209,6 +215,28 @@ function Post(props){
             </div>
         </div>
     );
+}
+function Content(props){
+    let mp4;
+    let ogg;
+    let img;
+    switch (props.type){
+        case 'img':
+            img = `assets/${props.type}/${props.contentName}.svg`;
+            return(
+                <img src={img}/>
+            )
+        case 'video':
+            mp4 = `/assets/${props.type}/${props.contentName}.mp4`;
+            ogg = `/assets/${props.type}/${props.contentName}.ogv`;
+            return(
+            <video width="612" height="100%" autoplay muted>
+                    <source src={mp4} type="video/mp4"/>
+                    <source src={ogg} type="video/ogg"/>
+                  Your browser does not support the video tag.
+            </video>
+            );
+    }
 }
 function Stories(){
     return(
