@@ -77,6 +77,23 @@ const retornoServidorUser = {
     userNickname: "catanacomics",
     userPublicName: "Catana"
 }
+const retornoServidorSuggestions = [
+    {
+        suggestionImage: "bad.vibes.memes",
+        suggestionUser: "Bad Vibe Memes",
+        suggestionReason: "mutual_follow"
+    },
+    {
+        suggestionImage: "bad.vibes.memes",
+        suggestionUser: "Bad Vibe Memes",
+        suggestionReason: "new_user"
+    },
+    {
+        suggestionImage: "bad.vibes.memes",
+        suggestionUser: "Bad Vibe Memes",
+        suggestionReason: "easter_egg"
+    },
+]
 export default function Corpo(){
     return(
         <div class="corpo">
@@ -186,28 +203,19 @@ function Story(props){
         </div>
     )
 }
+
+// DIVISÃO DE LADO DO CORPO
+// =============================================================
+// =============================================================
+// =============================================================
+// DIVISÃO DE CORPO
+
 function Sidebar(){
     return (
         <div class="sidebar">
                 <UserProfile {...retornoServidorUser} />
-
-                <div class="sugestoes">
-                    <div class="titulo">
-                        Sugestões para você
-                        <div>Ver tudo</div>
-                    </div>
-
-                    <div class="sugestao">
-                        <div class="usuario">
-                            <img src="assets/img/bad.vibes.memes.svg" />
-                            <div class="texto">
-                                <div class="nome">bad.vibes.memes</div>
-                                <div class="razao">Segue você</div>
-                            </div>
-                        </div>
-                        <div class="seguir">Seguir</div>
-                    </div>
-                </div>
+                <Suggestions />
+                
 
             <div class="links">
                 Sobre • Ajuda • Imprensa • API • Carreiras • Privacidade • Termos • Localizações • Contas mais relevantes • Hashtags • Idioma
@@ -228,6 +236,44 @@ function UserProfile(props){
                 <strong>{props.userPublicName}</strong>
                 {props.userNickname}
             </div>
+        </div>
+    );
+}
+function Suggestions(){
+    return (
+        <div class="sugestoes">
+            <div class="titulo">
+                Sugestões para você
+                <div>Ver tudo</div>
+            </div>
+            {retornoServidorSuggestions.map(Suggestion)}
+        </div>
+    )
+}
+function Suggestion(props){ 
+    const suggestionImage = `assets/img/${props.suggestionImage}.svg`;
+    let suggestionReason;
+    switch (props.suggestionReason){
+        case 'mutual_follow':
+            suggestionReason = "Segue Você";
+            break;
+        case 'new_user':
+            suggestionReason = "Novo no Instagram";
+            break;
+        case 'easter_egg':
+            suggestionReason = "Ovo de Páscoa";
+            break;
+    }
+    return (
+        <div class="sugestao">
+            <div class="usuario">
+                <img src={suggestionImage} />
+                <div class="texto">
+                    <div class="nome">{props.suggestionUser}</div>
+                    <div class="razao">{suggestionReason}</div>
+                </div>
+            </div>
+            <div class="seguir">Seguir</div>
         </div>
     );
 }
