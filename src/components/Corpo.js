@@ -1,9 +1,9 @@
-const retornoServidor = [
+const retornoServidorPosts = [
     {
         author:"barked",
         authorImage:"barked",
         contentFile:"dog",
-        engager:"adorable_animals",
+        engager:"Animais Adoráveis",
         engagerImage:"adorable_animals",
         numberReactions:"99.159"
     },
@@ -11,92 +11,70 @@ const retornoServidor = [
         author:"barked",
         authorImage:"barked",
         contentFile:"dog",
-        engager:"adorable_animals",
-        engagerImage:"adorable_animals",
+        engager:"Responde aí",
+        engagerImage:"respondeai",
         numberReactions:"99.160"
+    },
+]
+const retornoServidorStories = [
+    {
+        author: "9ag",
+        authorImage: "9gag"
+    },
+    {
+        author: "9ag",
+        authorImage: "9gag"
+    },
+    {
+        author: "9ag",
+        authorImage: "9gag"
+    },
+    {
+        author: "9ag",
+        authorImage: "9gag"
+    },
+    {
+        author: "9ag",
+        authorImage: "9gag"
+    },
+    {
+        author: "9ag",
+        authorImage: "9gag"
+    },
+    {
+        author: "9ag",
+        authorImage: "9gag"
+    },
+    {
+        author: "9ag",
+        authorImage: "9gag"
+    },
+    {
+        author: "9ag",
+        authorImage: "9gag"
+    },
+    {
+        author: "9ag",
+        authorImage: "9gag"
+    },
+    {
+        author: "9ag",
+        authorImage: "9gag"
+    },
+    {
+        author: "9ag",
+        authorImage: "9gag"
+    },
+    {
+        author: "9ag",
+        authorImage: "9gag"
     },
 ]
 export default function Corpo(){
     return(
         <div class="corpo">
             <div class="esquerda">
-                <div class="stories">
-                    <div class="story">
-                    <div class="imagem">
-                        <img src="assets/img/9gag.svg" />
-                    </div>
-                    <div class="usuario">
-                        9gag
-                    </div>
-                    </div>
-
-                    <div class="story">
-                    <div class="imagem">
-                        <img src="assets/img/meowed.svg" />
-                    </div>
-                    <div class="usuario">
-                        meowed
-                    </div>
-                    </div>
-
-                    <div class="story">
-                    <div class="imagem">
-                        <img src="assets/img/barked.svg" />
-                    </div>
-                    <div class="usuario">
-                        barked
-                    </div>
-                    </div>
-
-                    <div class="story">
-                    <div class="imagem">
-                        <img src="assets/img/nathanwpylestrangeplanet.svg" />
-                    </div>
-                    <div class="usuario">
-                        nathanwpylestrangeplanet
-                    </div>
-                    </div>
-
-                    <div class="story">
-                    <div class="imagem">
-                        <img src="assets/img/wawawicomics.svg" />
-                    </div>
-                    <div class="usuario">
-                        wawawicomics
-                    </div>
-                    </div>
-                    
-                    <div class="story">
-                    <div class="imagem">
-                        <img src="assets/img/respondeai.svg" />
-                    </div>
-                    <div class="usuario">
-                        respondeai
-                    </div>
-                    </div>
-
-                    <div class="story">
-                    <div class="imagem">
-                        <img src="assets/img/filomoderna.svg" />
-                    </div>
-                    <div class="usuario">
-                        filomoderna
-                    </div>
-                    </div>
-
-                    <div class="story">
-                    <div class="imagem">
-                        <img src="assets/img/memeriagourmet.svg" />
-                    </div>
-                    <div class="usuario">
-                        memeriagourmet
-                    </div>
-                    </div>
-
-                    <div class="setinha">
-                    <ion-icon name="chevron-forward-circle"></ion-icon>
-                    </div>
-                </div>
+                <Stories />
                 <Posts />
             </div>
 
@@ -186,7 +164,7 @@ export default function Corpo(){
 function Posts(){
     return(
         <div class="posts">
-            {retornoServidor.map(Post)}
+            {retornoServidorPosts.map(Post)}
         </div>    
     )
 }
@@ -231,4 +209,27 @@ function Post(props){
             </div>
         </div>
     );
+}
+function Stories(){
+    return(
+        <div class="stories">
+            {retornoServidorStories.map(Story)}
+            <div class="setinha">
+                    <ion-icon name="chevron-forward-circle"></ion-icon>
+            </div>
+        </div>
+    )
+}
+function Story(props){
+    const authorImage = `assets/img/${props.authorImage}.svg`;
+    return(
+        <div class="story">
+            <div class="imagem">
+                <img src={authorImage} />
+            </div>
+            <div class="usuario">
+                {props.author}
+            </div>
+        </div>
+    )
 }
