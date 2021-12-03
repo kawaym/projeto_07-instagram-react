@@ -2,6 +2,15 @@ const retornoServidorPosts = [
     {
         author:"barked",
         authorImage:"barked",
+        typeContent: "video",
+        contentName:"video",
+        engager:"Responde aí",
+        engagerImage:"respondeai",
+        numberReactions:"99.160"
+    },
+    {
+        author:"barked",
+        authorImage:"barked",
         typeContent: "img",
         contentName:"dog",
         engager:"Animais Adoráveis",
@@ -9,89 +18,90 @@ const retornoServidorPosts = [
         numberReactions:"99.159"
     },
     {
-        author:"barked",
-        authorImage:"barked",
-        typeContent: "video",
-        contentName:"video",
+        author:"meowed",
+        authorImage:"meowed",
+        typeContent: "img",
+        contentName:"gato-telefone",
         engager:"Responde aí",
         engagerImage:"respondeai",
-        numberReactions:"99.160"
+        numberReactions:"101.523"
     },
 ]
 const retornoServidorStories = [
     {
-        author: "9gag",
+        author: "9GAG",
         authorImage: "9gag"
     },
     {
-        author: "9gag",
-        authorImage: "9gag"
+        author: "Meowed",
+        authorImage: "meowed"
     },
     {
-        author: "9gag",
-        authorImage: "9gag"
+        author: "Barked",
+        authorImage: "barked"
     },
     {
-        author: "9gag",
-        authorImage: "9gag"
+        author: "StrangePlanet",
+        authorImage: "nathanwpylestrangeplanet"
     },
     {
-        author: "9gag",
-        authorImage: "9gag"
+        author: "BadVibeMemes",
+        authorImage: "bad.vibes.memes"
     },
     {
-        author: "9gag",
-        authorImage: "9gag"
+        author: "MemeriaGourmet",
+        authorImage: "memeriagourmet"
     },
     {
-        author: "9gag",
-        authorImage: "9gag"
+        author: "RespondeAi",
+        authorImage: "respondeai"
     },
     {
-        author: "9gag",
-        authorImage: "9gag"
+        author: "FiloModerna",
+        authorImage: "filomoderna"
     },
     {
-        author: "9gag",
-        authorImage: "9gag"
+        author: "nathanwpylestrangeplanet",
+        authorImage: "nathanwpylestrangeplanet"
     },
     {
-        author: "9gag",
-        authorImage: "9gag"
+        author: "nathanwpylestrangeplanet",
+        authorImage: "nathanwpylestrangeplanet"
     },
     {
-        author: "9gag",
-        authorImage: "9gag"
+        author: "nathanwpylestrangeplanet",
+        authorImage: "nathanwpylestrangeplanet"
     },
     {
-        author: "9gag",
-        authorImage: "9gag"
-    },
-    {
-        author: "9gag",
-        authorImage: "9gag"
+        author: "nathanwpylestrangeplanet",
+        authorImage: "nathanwpylestrangeplanet"
     },
 ]
 const retornoServidorUser = {
-    userImage: "catanacomics",
-    userNickname: "catanacomics",
-    userPublicName: "Catana"
+    userImage: "kaway",
+    userNickname: "kawaymarinho",
+    userPublicName: "Kaway Marinho",
 }
 const retornoServidorSuggestions = [
     {
-        suggestionImage: "bad.vibes.memes",
-        suggestionUser: "Bad Vibe Memes",
+        suggestionImage: "chibirdart",
+        suggestionUser: "Chibird Art",
         suggestionReason: "mutual_follow"
     },
     {
-        suggestionImage: "bad.vibes.memes",
-        suggestionUser: "Bad Vibe Memes",
+        suggestionImage: "razoesparaacreditar",
+        suggestionUser: "Razões para Acreditar",
         suggestionReason: "new_user"
     },
     {
         suggestionImage: "bad.vibes.memes",
         suggestionUser: "Bad Vibe Memes",
         suggestionReason: "easter_egg"
+    },
+    {
+        suggestionImage: "wawawicomics",
+        suggestionUser: "Wawawi Comics",
+        suggestionReason: "new_user"
     },
 ]
 export default function Corpo(){
@@ -102,6 +112,9 @@ export default function Corpo(){
         </div>
     );
 }
+
+// INICIO DA COMPONENTIZAÇÃO DE CORPO
+
 function Main(){
     return(
         <div class="esquerda">
@@ -172,7 +185,7 @@ function Content(props){
             mp4 = `/assets/${props.type}/${props.contentName}.mp4`;
             ogg = `/assets/${props.type}/${props.contentName}.ogv`;
             return(
-            <video width="612" height="100%" autolay muted>
+            <video width="100%" height="100%" autoPlay muted>
                     <source src={mp4} type="video/mp4"/>
                     <source src={ogg} type="video/ogg"/>
                   Your browser does not support the video tag.
@@ -215,8 +228,6 @@ function Sidebar(){
         <div class="sidebar">
                 <UserProfile {...retornoServidorUser} />
                 <Suggestions />
-                
-
             <div class="links">
                 Sobre • Ajuda • Imprensa • API • Carreiras • Privacidade • Termos • Localizações • Contas mais relevantes • Hashtags • Idioma
             </div>
@@ -276,4 +287,4 @@ function Suggestion(props){
             <div class="seguir">Seguir</div>
         </div>
     );
-}
+}   
