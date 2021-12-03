@@ -20,143 +20,68 @@ const retornoServidorPosts = [
 ]
 const retornoServidorStories = [
     {
-        author: "9ag",
+        author: "9gag",
         authorImage: "9gag"
     },
     {
-        author: "9ag",
+        author: "9gag",
         authorImage: "9gag"
     },
     {
-        author: "9ag",
+        author: "9gag",
         authorImage: "9gag"
     },
     {
-        author: "9ag",
+        author: "9gag",
         authorImage: "9gag"
     },
     {
-        author: "9ag",
+        author: "9gag",
         authorImage: "9gag"
     },
     {
-        author: "9ag",
+        author: "9gag",
         authorImage: "9gag"
     },
     {
-        author: "9ag",
+        author: "9gag",
         authorImage: "9gag"
     },
     {
-        author: "9ag",
+        author: "9gag",
         authorImage: "9gag"
     },
     {
-        author: "9ag",
+        author: "9gag",
         authorImage: "9gag"
     },
     {
-        author: "9ag",
+        author: "9gag",
         authorImage: "9gag"
     },
     {
-        author: "9ag",
+        author: "9gag",
         authorImage: "9gag"
     },
     {
-        author: "9ag",
+        author: "9gag",
         authorImage: "9gag"
     },
     {
-        author: "9ag",
+        author: "9gag",
         authorImage: "9gag"
     },
 ]
+const retornoServidorUser = {
+    userImage: "catanacomics",
+    userNickname: "catanacomics",
+    userPublicName: "Catana"
+}
 export default function Corpo(){
     return(
         <div class="corpo">
             <Main />
-
-            <div class="sidebar">
-                <div class="usuario">
-                    <img src="assets/img/catanacomics.svg" />
-                    <div class="texto">
-                    <strong>catanacomics</strong>
-                    Catana
-                </div>
-            </div>
-
-            <div class="sugestoes">
-                <div class="titulo">
-                    Sugestões para você
-                    <div>Ver tudo</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/bad.vibes.memes.svg" />
-                        <div class="texto">
-                            <div class="nome">bad.vibes.memes</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/chibirdart.svg" />
-                        <div class="texto">
-                            <div class="nome">chibirdart</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/razoesparaacreditar.svg" />
-                        <div class="texto">
-                            <div class="nome">razoesparaacreditar</div>
-                            <div class="razao">Novo no Instagram</div>
-                        </div>
-                    </div>
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/adorable_animals.svg" />
-                        <div class="texto">
-                            <div class="nome">adorable_animals</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-                    <div class="seguir">Seguir</div>
-                </div>
-
-                <div class="sugestao">
-                    <div class="usuario">
-                        <img src="assets/img/smallcutecats.svg" />
-                        <div class="texto">
-                            <div class="nome">smallcutecats</div>
-                            <div class="razao">Segue você</div>
-                        </div>
-                    </div>
-                    <div class="seguir">Seguir</div>
-                </div>
-
-            </div>
-
-            <div class="links">
-                Sobre • Ajuda • Imprensa • API • Carreiras • Privacidade • Termos • Localizações • Contas mais relevantes • Hashtags • Idioma
-            </div>
-
-            <div class="copyright">
-                © 2021 INSTAGRAM DO FACEBOOK
-            </div>
-            </div>
+            <Sidebar />            
         </div>
     );
 }
@@ -230,7 +155,7 @@ function Content(props){
             mp4 = `/assets/${props.type}/${props.contentName}.mp4`;
             ogg = `/assets/${props.type}/${props.contentName}.ogv`;
             return(
-            <video width="612" height="100%" autoplay muted>
+            <video width="612" height="100%" autolay muted>
                     <source src={mp4} type="video/mp4"/>
                     <source src={ogg} type="video/ogg"/>
                   Your browser does not support the video tag.
@@ -260,4 +185,49 @@ function Story(props){
             </div>
         </div>
     )
+}
+function Sidebar(){
+    return (
+        <div class="sidebar">
+                <UserProfile {...retornoServidorUser} />
+
+                <div class="sugestoes">
+                    <div class="titulo">
+                        Sugestões para você
+                        <div>Ver tudo</div>
+                    </div>
+
+                    <div class="sugestao">
+                        <div class="usuario">
+                            <img src="assets/img/bad.vibes.memes.svg" />
+                            <div class="texto">
+                                <div class="nome">bad.vibes.memes</div>
+                                <div class="razao">Segue você</div>
+                            </div>
+                        </div>
+                        <div class="seguir">Seguir</div>
+                    </div>
+                </div>
+
+            <div class="links">
+                Sobre • Ajuda • Imprensa • API • Carreiras • Privacidade • Termos • Localizações • Contas mais relevantes • Hashtags • Idioma
+            </div>
+
+            <div class="copyright">
+                © 2021 INSTAGRAM DO FACEBOOK
+            </div>
+        </div>
+    );
+}
+function UserProfile(props){
+    const userImage = `assets/img/${props.userImage}.svg`;
+    return(
+        <div class="usuario">
+            <img src={userImage} />
+            <div class="texto">
+                <strong>{props.userPublicName}</strong>
+                {props.userNickname}
+            </div>
+        </div>
+    );
 }
