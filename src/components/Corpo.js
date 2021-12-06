@@ -182,8 +182,8 @@ function Content(props){
                 <img src={img}/>
             )
         case 'video':
-            mp4 = `/assets/${props.type}/${props.contentName}.mp4`;
-            ogg = `/assets/${props.type}/${props.contentName}.ogv`;
+            mp4 = `assets/${props.type}/${props.contentName}.mp4`;
+            ogg = `assets/${props.type}/${props.contentName}.ogv`;
             return(
             <video width="100%" height="100%" autoPlay muted>
                     <source src={mp4} type="video/mp4"/>
